@@ -1,0 +1,18 @@
+module "apigateway" {
+  source                      = "../apigateway"
+  profile                     = ""
+  region                      = "us-east-2"
+  endpoint_configuration_type = "REGIONAL"
+  http_method_type            = "GET"
+  apigw_integration_type      = "HTTP_PROXY"
+  integration_connection_type = "VPC_LINK"
+  api_gw_name                 = "test-tf-APIGW"
+  stage_name                  = "apistage"
+  api_path_part               = "proxy"
+  vpc_link_name               = "vpclink-apigw-test-nlb"
+  lambda_func_arn             = ""
+  nlb_arn                     = ""
+  domain_name                 = ""
+  certificate_arn             = ""
+  security_policy             = "TLS_1_2"
+}
